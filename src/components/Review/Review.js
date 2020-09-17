@@ -6,14 +6,17 @@ import fakeData from '../../fakeData';
 import ReviewItem from '../Reviewitem/ReviewItem';
 import Cart from '../Cart/Cart';
 import happyImage from '../../images/giphy.gif'
+import { useHistory } from 'react-router-dom';
 
 const Review = () => {
     const [data , setData] = useState([]);
     const [orderPlace , setorderPlace] = useState(false);
+    const history = useHistory();
  const placeOrder = () => {
-        setData([]);
-        setorderPlace(true);
-        processOrder(data);
+        history.push('/shipment')
+        // setData([]);
+        // setorderPlace(true);
+        // processOrder(data);
     }
     useEffect(() => {
         const getData = getDatabaseCart();
@@ -53,9 +56,13 @@ const Review = () => {
              
             <div className="cart-container">
                     <Cart cart={data}>
-                    <button onClick={placeOrder} className= "main-button" >
-                        Place Order
-                    </button>
+                        {
+                        data.length &&
+                        <button onClick={placeOrder} className= "main-button" >
+                            Place Order
+                        </button>
+                        }
+                    
                     </Cart>
             </div> 
             
