@@ -7,6 +7,7 @@ import Cart from '../Cart/Cart';
 const ProductDetail = () => {
     const {productkey} = useParams();
     const product = fakeData.find(pd=>pd.key === productkey);
+    
     return (
         <div className="shop-container">
             <div className="product-container">

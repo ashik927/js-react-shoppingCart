@@ -14,8 +14,10 @@ const Header = () => {
                     <Link to="/inventory">manage Inventory</Link>
                     {
                     loggedInUser.email &&
-                    <button onClick={()=>setLoggedInUser({})}>Sign Out</button>
+                    
+                    <button style={{ cursor:'pointer' }} onClick={()=>setLoggedInUser({})}>Sign Out</button>
                     }   
+                    welcome to {loggedInUser.name}
                 </nav>
         </div>
     );
